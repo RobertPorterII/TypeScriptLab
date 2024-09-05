@@ -200,6 +200,64 @@ myBuick.wheels = myBuick.wheels - 1;
 console.log(myBuick.wheels);
 // change to model from mdl error to fix it 
 console.log(myBuick.model);
+//======= Part 3 NCycle Class <t> MEANS TYPE <Type>
+// <T> generic type
+var NCycle = /** @class */function () {
+  // array of generic type
+  function NCycle(make, model, wheels) {
+    this.status = "stopped";
+    this.make = make;
+    this.model = model;
+    this.wheels = wheels;
+  }
+  NCycle.prototype.start = function () {
+    this.status = "started";
+  };
+  NCycle.prototype.stop = function () {
+    this.status = "stopped";
+  };
+  // new print method
+  // if this.make and this.model are both arrays
+  NCycle.prototype.print = function (index) {
+    if (index === void 0) {
+      index = 0;
+    }
+    if (Array.isArray(this.make) && Array.isArray(this.model)) {
+      // if parameter index exist in this.make and this.model
+      if (this.make[index] && this.model[index]) {
+        console.log("This NCycle has a " + this.make[index] + " " + this.model[index] + " at " + index);
+      }
+    } else {
+      // if(typeof this.make === 'string' && typeof this.model === 'string'){
+      console.log("This is a " + this.make + " " + this.model + " NCycle");
+      // }
+      // console.log(`This is a ${this.make} ${this.model} NCycle`);
+    }
+  };
+  // print all method
+  NCycle.prototype.printAll = function () {
+    if (Array.isArray(this.make) && Array.isArray(this.model)) {
+      for (var i = 0; i < Math.min(this.make.length, this.model.length); i++) {
+        //  for (let i = 0; i < this.make.length; i ++){
+        console.log("This NCycle has a " + this.make[i] + " " + this.model[i]);
+      }
+    }
+  };
+  return NCycle;
+}();
+// ===== Part 4 Testing
+//const test = new NCycle<string[]>()
+var testCycle1 = new NCycle(1, 2, 3);
+testCycle1.print();
+var testCycle2 = new NCycle("Ford", "F150", 4);
+testCycle2.print();
+var testCycle3 = new NCycle("Tesla", 'Model Y', 4);
+testCycle3.print(4);
+var makes4 = ["Volkswagon", "Tesla", "Audi"];
+var models4 = ["Passat", "Model X", "A4"];
+var testCycle4 = new NCycle(makes4, models4, 4);
+testCycle4.print(2);
+testCycle4.printAll();
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
