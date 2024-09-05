@@ -1,0 +1,22 @@
+{
+    "name": "alab-working-with-typescript",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.html",
+    "scripts": {
+        "start": "parcel index.html --open",
+        "build": "parcel build index.html"
+    },
+    "dependencies": {
+        "@types/source-map": "^0.5.2",
+        "parcel-bundler": "1.12.5",
+        "source-map": "^0.7.4"
+    },
+    "devDependencies": {
+        "typescript": "4.4.4"
+    },
+    "resolutions": {
+        "@babel/preset-env": "7.13.8"
+    },
+    "keywords": []
+}
